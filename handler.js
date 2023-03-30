@@ -89,7 +89,6 @@ module.exports.getAllNotes = async (event, context, cb) => {
     const params = {
       TableName: NOTES_TABLE_NAME,
     };
-
     const notes = await documentClient.scan(params).promise();
     cb(null, send(200, notes));
   } catch (err) {
